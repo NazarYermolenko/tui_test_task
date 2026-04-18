@@ -1,25 +1,30 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ main ]
+    branches: [ main, ci_fix ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, ci_fix ]
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
       with:
-        node-version: lts/*
+        node-version: '24.x'
+        cache: 'npm'
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test
-    - uses: actions/upload-artifact@v4
+      env:
+        # Pass the BASE_URL secret from GitHub Actions secrets. 
+        # Falls back to empty string if not set, but TuiUrlProvider has its own default.
+        BASE_URL: ${{ secrets.BASE_URL }}
+      run: npm test
+    - uses: actions/upload-artifact@v7
       if: ${{ !cancelled() }}
       with:
         name: playwright-report
