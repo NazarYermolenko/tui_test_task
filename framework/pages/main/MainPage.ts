@@ -25,7 +25,7 @@ export class MainPage extends BasePage implements ILoadable {
   }
 
   @Step('Waiting for CookiesModal')
-  async waitForCoockiesModal() {
+  async waitForCookiesModal() {
     return new CookiesModal(this.page).waitForLoad()
   }
 }

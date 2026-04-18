@@ -8,7 +8,7 @@ export const tui_fixture = base.extend<{ mainPage: MainPage }>({
     const mainPage = await MainPage.open(page, tuiUrl);
 
     // as most cases will require that :) 
-    const cookiesModal = await mainPage.waitForCoockiesModal()
+    const cookiesModal = await mainPage.waitForCookiesModal()
     await cookiesModal.acceptCookies()
 
     await use(mainPage);
