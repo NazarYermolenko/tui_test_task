@@ -9,7 +9,6 @@ export class SupportPassengerForm extends DynamicComponent {
         firstNameError: () => this.wrapper().locator('[aria-label="Eerste voornaam"] .inputs__errorMessage'),
         lastName: () => this.wrapper().locator('input[name$="lastName"]'),
         lastNameError: () => this.wrapper().locator('[aria-label="Achternaam"] .inputs__errorMessage'),
-        lastNameSameAsLeadCheckbox: () => this.wrapper().locator('input[name$="lastNameSameAsLeadSelected"]'),
         gender: () => this.wrapper().locator('select[name$="gender"]'),
         genderError: () => this.wrapper().locator('[aria-label="Geslacht"] .inputs__errorMessage'),
         dobDay: () => this.wrapper().locator('input[aria-label="day"]'),
