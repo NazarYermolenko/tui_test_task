@@ -1,9 +1,9 @@
 import { expect } from "@playwright/test";
-import { BasePage } from "../../../../../base/pages/BasePage";
-import type { ILoadable } from "../../../../../base/pages/ILoadable";
-import { ChildrenAgeSelectorComponent } from "./ChildrenAgeSelectorComponent";
-import type { IClosable } from "../../../../../base/pages/IClosable";
-import { Step } from "../../../../../logger/Step";
+import { BasePage } from "@base/pages/BasePage";
+import type { ILoadable } from "@base/pages/ILoadable";
+import { ChildrenAgeSelectorComponent } from "@pages/main/components/search_panel/rooms_and_guests/ChildrenAgeSelectorComponent";
+import type { IClosable } from "@base/pages/IClosable";
+import { Step } from "@logger/Step";
 
 export class RoomsAndGuestsSelectorComponent extends BasePage implements ILoadable, IClosable {
     locators = {

@@ -1,5 +1,5 @@
-import { DynamicComponent } from "../../../../../base/dynamic_components/DynamicComponent";
-import { Step } from "../../../../../logger/Step";
+import { DynamicComponent } from "@base/dynamic_components/DynamicComponent";
+import { Step } from "@logger/Step";
 
 export class ChildrenAgeSelectorComponent extends DynamicComponent {
     locators = {

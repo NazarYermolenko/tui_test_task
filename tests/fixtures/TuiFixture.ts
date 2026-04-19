@@ -1,6 +1,6 @@
 import { test as base } from '@playwright/test';
-import { MainPage } from '../../framework/pages/main/MainPage';
-import { TuiUrlProvider } from '../../framework/utils/TuiUrlProvider';
+import { MainPage } from '@pages/main/MainPage';
+import { TuiUrlProvider } from '@utils/TuiUrlProvider';
 
 export const tuiFixture = base.extend<{ mainPage: MainPage }>({
   mainPage: async ({ page }, use) => {

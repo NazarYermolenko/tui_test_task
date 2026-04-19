@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { logger, loggerContext } from './Logger';
+import { logger, loggerContext } from '@logger/Logger';
 
 /**
  * Information about a function parameter extracted from its string representation.

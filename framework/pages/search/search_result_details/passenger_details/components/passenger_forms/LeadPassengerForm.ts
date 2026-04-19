@@ -1,7 +1,7 @@
-import { DynamicComponent } from "../../../../../../base/dynamic_components/DynamicComponent";
+import { DynamicComponent } from "@base/dynamic_components/DynamicComponent";
 import { expect } from "@playwright/test";
-import { Step } from "../../../../../../logger/Step";
-import { PassengerValidationMessages } from "./PassengerValidationMessages";
+import { Step } from "@logger/Step";
+import { PassengerValidationMessages } from "@pages/search/search_result_details/passenger_details/components/passenger_forms/PassengerValidationMessages";
 
 export class LeadPassengerForm extends DynamicComponent {
     locators = {

@@ -1,6 +1,15 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@framework/*": ["./framework/*"],
+      "@pages/*": ["./framework/pages/*"],
+      "@utils/*": ["./framework/utils/*"],
+      "@logger/*": ["./framework/logger/*"],
+      "@base/*": ["./framework/base/*"],
+      "@tests/*": ["./tests/*"]
+    },
     "experimentalDecorators": false,
     // File Layout
     // "rootDir": "./src",
@@ -35,6 +44,8 @@
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
   }

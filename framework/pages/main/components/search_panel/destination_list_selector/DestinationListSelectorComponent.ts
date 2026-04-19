@@ -1,8 +1,8 @@
 import { expect } from "@playwright/test";
-import { BasePage } from "../../../../../base/pages/BasePage";
-import type { ILoadable } from "../../../../../base/pages/ILoadable";
-import { DestinationSelectorDetails } from "./DestinationSelectorDetails";
-import { Step } from "../../../../../logger/Step";
+import { BasePage } from "@base/pages/BasePage";
+import type { ILoadable } from "@base/pages/ILoadable";
+import { DestinationSelectorDetails } from "@pages/main/components/search_panel/destination_list_selector/DestinationSelectorDetails";
+import { Step } from "@logger/Step";
 
 export class DestinationListSelectorComponent extends BasePage implements ILoadable {
 

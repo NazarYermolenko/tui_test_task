@@ -1,7 +1,7 @@
-import { DynamicComponent } from "../../../../../base/dynamic_components/DynamicComponent";
-import { LeadPassengerForm } from "./passenger_forms/LeadPassengerForm";
-import { SupportPassengerForm } from "./passenger_forms/SupportPassengerForm";
-import { PassengerTypes } from "./passenger_forms/PassengerTypes";
+import { DynamicComponent } from "@base/dynamic_components/DynamicComponent";
+import { LeadPassengerForm } from "@pages/search/search_result_details/passenger_details/components/passenger_forms/LeadPassengerForm";
+import { SupportPassengerForm } from "@pages/search/search_result_details/passenger_details/components/passenger_forms/SupportPassengerForm";
+import { PassengerTypes } from "@pages/search/search_result_details/passenger_details/components/passenger_forms/PassengerTypes";
 
 export class PassengerForm extends DynamicComponent {
     getAs(type: typeof PassengerTypes.LEAD): LeadPassengerForm

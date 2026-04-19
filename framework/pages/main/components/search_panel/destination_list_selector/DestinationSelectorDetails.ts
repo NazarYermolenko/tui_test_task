@@ -1,7 +1,7 @@
 import { expect } from "@playwright/test";
-import { BasePage } from "../../../../../base/pages/BasePage";
-import type { ILoadable } from "../../../../../base/pages/ILoadable";
-import { Step } from "../../../../../logger/Step";
+import { BasePage } from "@base/pages/BasePage";
+import type { ILoadable } from "@base/pages/ILoadable";
+import { Step } from "@logger/Step";
 
 export class DestinationSelectorDetails extends BasePage implements ILoadable {
     locators = {

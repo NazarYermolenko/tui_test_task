@@ -1,8 +1,8 @@
-import { BasePage } from "../../../../base/pages/BasePage";
-import { PassengerForm } from "./components/PassengerForm";
-import { PassengerTypes } from "./components/passenger_forms/PassengerTypes";
-import { Step } from "../../../../logger/Step";
-import type { ILoadable } from "../../../../base/pages/ILoadable";
+import { BasePage } from "@base/pages/BasePage";
+import { PassengerForm } from "@pages/search/search_result_details/passenger_details/components/PassengerForm";
+import { PassengerTypes } from "@pages/search/search_result_details/passenger_details/components/passenger_forms/PassengerTypes";
+import { Step } from "@logger/Step";
+import type { ILoadable } from "@base/pages/ILoadable";
 import { expect } from "@playwright/test";
 
 export class PassengerDetailsPage extends BasePage implements ILoadable {

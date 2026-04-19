@@ -1,7 +1,7 @@
-import { tuiFixture } from './fixtures/TuiFixture';
+import { tuiFixture } from '@tests/fixtures/TuiFixture';
 import { expect } from '@playwright/test';
-import { WaitUtils } from '../framework/utils/WaitUtils';
-import { PassengerValidationMessages } from '../framework/pages/search/search_result_details/passenger_details/components/passenger_forms/PassengerValidationMessages';
+import { WaitUtils } from '@utils/WaitUtils';
+import { PassengerValidationMessages } from '@pages/search/search_result_details/passenger_details/components/passenger_forms/PassengerValidationMessages';
 
 // Note: 'random' selection for the fields below is supported by the framework but disabled here 
 // due to inconsistent availability of search results for random combinations.

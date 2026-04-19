@@ -1,7 +1,7 @@
-import { BasePage } from "../../../../base/pages/BasePage";
-import { HolidayDetailsPricePanel } from "./components/HolidayDetailsPricePanel";
-import type { ILoadable } from "../../../../base/pages/ILoadable";
-import { Step } from "../../../../logger/Step";
+import { BasePage } from "@base/pages/BasePage";
+import { HolidayDetailsPricePanel } from "@pages/search/search_result_details/holiday_details/components/HolidayDetailsPricePanel";
+import type { ILoadable } from "@base/pages/ILoadable";
+import { Step } from "@logger/Step";
 
 export class HolidayDetailsPage extends BasePage implements ILoadable {
 

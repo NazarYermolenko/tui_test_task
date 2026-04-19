@@ -1,15 +1,15 @@
 import { expect } from "@playwright/test";
-import { BasePage } from "../../../../base/pages/BasePage";
-import type { ILoadable } from "../../../../base/pages/ILoadable";
-import { DepartureSelectorComponent } from "./departure_selector/DepartureSelectorComponent";
-import { logger } from "../../../../logger/Logger";
-import { DestinationListSelectorComponent } from "./destination_list_selector/DestinationListSelectorComponent";
-import { DepartureDateSelectorComponent } from "./departure_date_selector/DepartureDateSelectorComponent";
-import { RoomsAndGuestsSelectorComponent } from "./rooms_and_guests/RoomsAndGuestsSelectorComponent";
-import { SearchResultsPage } from "../../../search/search_results/SearchResultsPage";
-import { SearchPanelSelectors } from "./SearchPanelSelectors";
-import type { SearchCriteria } from "./SearchCriteria";
-import { Step } from "../../../../logger/Step";
+import { BasePage } from "@base/pages/BasePage";
+import type { ILoadable } from "@base/pages/ILoadable";
+import { DepartureSelectorComponent } from "@pages/main/components/search_panel/departure_selector/DepartureSelectorComponent";
+import { logger } from "@logger/Logger";
+import { DestinationListSelectorComponent } from "@pages/main/components/search_panel/destination_list_selector/DestinationListSelectorComponent";
+import { DepartureDateSelectorComponent } from "@pages/main/components/search_panel/departure_date_selector/DepartureDateSelectorComponent";
+import { RoomsAndGuestsSelectorComponent } from "@pages/main/components/search_panel/rooms_and_guests/RoomsAndGuestsSelectorComponent";
+import { SearchResultsPage } from "@pages/search/search_results/SearchResultsPage";
+import { SearchPanelSelectors } from "@pages/main/components/search_panel/SearchPanelSelectors";
+import type { SearchCriteria } from "@pages/main/components/search_panel/SearchCriteria";
+import { Step } from "@logger/Step";
 
 
 export class SearchPanel extends BasePage implements ILoadable {
