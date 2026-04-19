@@ -19,6 +19,7 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "target": "esnext",
+    "lib": ["esnext", "dom"],
     "types": ["node"],
     // For nodejs:
     // "lib": ["esnext"],
@@ -40,7 +41,6 @@
     // "noPropertyAccessFromIndexSignature": true,
     // Recommended Options
     "strict": true,
-    "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
@@ -48,5 +48,7 @@
     "allowSyntheticDefaultImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-  }
+  },
+  "include": ["framework/**/*.ts", "tests/**/*.ts"],
+  "exclude": ["node_modules"]
 }
