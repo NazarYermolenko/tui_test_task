@@ -8,7 +8,7 @@ export class ResultItem extends DynamicComponent {
         hotelName: () => this.wrapper().locator('a[data-test-id="hotel-name"]')
     }
 
-    @Step(async o => `Clicking continue button for hotel "${await o.getHotelName()}"`)
+    @Step(async o => `Continue: ${await o.getHotelName()}`)
     async clickContinue() {
         const button = this.locators.continueButton()
         await button.click()
@@ -16,7 +16,7 @@ export class ResultItem extends DynamicComponent {
         return new HotelDetailsPage(this.wrapper().page()).waitForLoad()
     }
 
-    @Step('Getting hotel name from ResultItem')
+    @Step('Get name')
     async getHotelName() {
         return (await this.locators.hotelName().textContent())?.trim() || 'Unknown Hotel'
     }

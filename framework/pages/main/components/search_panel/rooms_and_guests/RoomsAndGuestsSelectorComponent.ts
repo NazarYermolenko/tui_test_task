@@ -14,34 +14,34 @@ export class RoomsAndGuestsSelectorComponent extends BasePage implements ILoadab
         saveButton: () => this.locators.wrapper().locator('span button').filter({ hasText: "Opslaan" })
     }
 
-    @Step('Waiting for RoomsAndGuestsComponent to load')
+    @Step('Load')
     async waitForLoad(): Promise<this> {
         await expect(this.locators.wrapper()).toBeVisible();
         return this;
     }
 
-    @Step('Waiting for RoomsAndGuestsComponent to close')
+    @Step('Wait for close')
     async waitForClose(): Promise<void> {
         await expect(this.locators.wrapper()).toBeHidden();
     }
 
-    @Step('Setting adults count')
+    @Step('Adults: {0}')
     async setAdultsCount(expectedAdultsCount: number) {
         await this.locators.adultsCountSelector().selectOption(expectedAdultsCount.toString());
     }
 
-    @Step('Setting children count')
+    @Step('Children: {0}')
     async setChildrenCount(expectedChildrenCount: number) {
         await this.locators.childrenCountSelector().selectOption(expectedChildrenCount.toString());
     }
 
-    @Step('Getting children age selectors')
+    @Step('Get age selectors')
     async getChildrenAgeSelectors(): Promise<ChildrenAgeSelectorComponent[]> {
         return Promise.all((await this.locators.childrenAgeSelector().all()).map((locator) => new ChildrenAgeSelectorComponent(() => locator)))
     }
 
 
-    @Step('Clicking save button on RoomsAndGuestsSelectorComponent')
+    @Step('Save')
     async clickSave() {
         await this.locators.saveButton().click();
     }

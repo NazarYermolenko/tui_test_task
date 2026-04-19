@@ -11,31 +11,31 @@ export class DepartureSelectorComponent extends BasePage implements ILoadable {
         saveButton: () => this.locators.airportDropdownWrapper().locator('button', { hasText: 'Opslaan' })
     }
 
-    @Step('Waiting for DepartureSelectorComponent to load')
+    @Step('Load')
     async waitForLoad(): Promise<this> {
         await expect(this.locators.airportDropdownWrapper()).toBeVisible()
         await expect(this.locators.airportWrapperLocator().first()).toBeVisible()
         return this
     }
 
-    @Step('Getting list of airports')
+    @Step('Get list')
     async getAirports(): Promise<string[]> {
         return this.locators.airportWrapperLocator().allTextContents()
     }
 
-    @Step('Selecting airport')
+    @Step('Select {0}')
     async selectAirportByName(airportName: string) {
         await this.locators.airportWrapperLocator()
             .filter({ hasText: airportName }).click()
     }
 
-    @Step('Clicking save on DepartureSelectorComponent')
+    @Step('Save')
     async clickSave() {
         await this.locators.saveButton().click()
         return this.waitForClose()
     }
 
-    @Step('Waiting for DepartureSelectorComponent to close')
+    @Step('Wait for close')
     async waitForClose(): Promise<void> {
         await expect(this.locators.airportDropdownWrapper()).toBeHidden()
     }

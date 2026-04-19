@@ -11,13 +11,13 @@ export class PassengerDetailsPage extends BasePage implements ILoadable {
         passengerForms: () => this.page.locator('.PassengerFormV2__passengerContainer')
     }
 
-    @Step('Waiting for PassengerDetailsPage to load')
+    @Step('Load')
     async waitForLoad() {
         await expect(this.locators.continueButton()).toBeVisible()
         return this
     }
 
-    @Step('Clicking continue button on PassengerDetailsPage')
+    @Step('Continue')
     async clickContinue({ expectSuccess = true }: { expectSuccess?: boolean }) {
         const button = this.locators.continueButton()
         await button.click()
@@ -26,18 +26,18 @@ export class PassengerDetailsPage extends BasePage implements ILoadable {
         }
     }
 
-    @Step('Getting passenger forms')
+    @Step('Get forms')
     async getPassengerForms() {
         return Promise.all((await this.locators.passengerForms().all()).map(async (locator) => new PassengerForm(() => locator)))
     }
 
-    @Step('Getting lead passenger form')
+    @Step('Get lead')
     async getLeadPassengerForm() {
         const forms = await this.getPassengerForms();
         return forms.at(0)!.getAs(PassengerTypes.LEAD);
     }
 
-    @Step('Getting support passenger forms')
+    @Step('Get support')
     async getSupportPassengerForms() {
         const forms = await this.getPassengerForms();
         return forms.slice(1).map(f => f.getAs(PassengerTypes.SUPPORT));

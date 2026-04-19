@@ -13,12 +13,12 @@ export class SearchResultsPage extends BasePage implements ILoadable {
         return new SearchPanel(this.page)
     }
 
-    @Step('Waiting for SearchResultsPage to load')
+    @Step('Load')
     async waitForLoad(): Promise<this> {
         return this
     }
 
-    @Step('Getting search results')
+    @Step('Results')
     async getSearchResults() {
         return Promise.all((await this.locators.results().all()).map((locator) => new ResultItem(() => locator)))
     }

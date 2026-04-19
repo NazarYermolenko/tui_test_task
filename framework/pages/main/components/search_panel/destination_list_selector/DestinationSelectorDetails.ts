@@ -10,19 +10,19 @@ export class DestinationSelectorDetails extends BasePage implements ILoadable {
         saveButton: () => this.locators.wrapper().locator('button.DropModal__apply')
     }
 
-    @Step('Waiting for DestinationSelectorDetails to load')
+    @Step('Load')
     async waitForLoad(): Promise<this> {
         await expect(this.locators.wrapper()).toBeVisible();
         await expect(this.locators.saveButton()).toBeVisible();
         return this;
     }
 
-    @Step('Selecting all destinations')
+    @Step('Select all')
     async selectAll() {
         await this.locators.selectAllCheckbox().click();
     }
 
-    @Step('Saving destinations')
+    @Step('Save')
     async clickSave() {
         await this.locators.saveButton().click();
     }

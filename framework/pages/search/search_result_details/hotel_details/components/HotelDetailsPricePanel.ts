@@ -9,7 +9,7 @@ export class HotelDetailsPricePanel extends BasePage {
 
     }
 
-    @Step('Clicking summary button')
+    @Step('Summary')
     async clickSummary() {
         const button = this.locators.summaryButton()
         await button.click()

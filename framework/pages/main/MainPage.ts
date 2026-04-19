@@ -5,26 +5,25 @@ import { SearchPanel } from '@pages/main/components/search_panel/SearchPanel';
 import type { ILoadable } from '@base/pages/ILoadable';
 import { Step } from '@logger/Step';
 
-import { TuiUrlProvider } from '@utils/TuiUrlProvider';
 
 export class MainPage extends BasePage implements ILoadable {
   get searchPanel() {
     return new SearchPanel(this.page);
   }
 
-  @Step('Waiting for MainPage to load')
+  @Step('Load')
   async waitForLoad(): Promise<this> {
     await this.searchPanel.waitForLoad()
     return this
   }
 
-  @Step('Opening MainPage at {url}')
+  @Step('Open {url}')
   static async open(page: Page, url: string) {
     await page.goto(url);
     return new MainPage(page).waitForLoad()
   }
 
-  @Step('Waiting for CookiesModal')
+  @Step('Wait for cookies')
   async waitForCookiesModal() {
     return new CookiesModal(this.page).waitForLoad()
   }
