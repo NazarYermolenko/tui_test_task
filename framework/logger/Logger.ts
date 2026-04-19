@@ -22,10 +22,10 @@ const logFormat = printf(({ level, message, timestamp, context, method }) => {
   const store = loggerContext.getStore();
   const currentContext = context || store?.context;
   const currentMethod = method || store?.method;
-  
+
   const contextStr = currentContext ? ` [${currentContext}${currentMethod ? `.${currentMethod}` : ''}]` : '';
   const messageStr = typeof message === 'object' ? JSON.stringify(message, null, 2) : message;
-  return `${timestamp}${contextStr} ${level}: ${messageStr}`;
+  return `${timestamp}${contextStr}:\n${level}: ${messageStr}`;
 });
 
 /**

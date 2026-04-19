@@ -9,6 +9,7 @@ export const PassengerValidationMessages = {
     CITY: 'Vul de woonplaats in',
     PHONE: 'Vul het telefoonnummer in',
     EMAIL: 'Vul het e-mailadres in',
+    NAME_LENGTH_AND_CHARS: 'Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens.',
     INVALID_FORMAT: 'Ongeldig formaat', // Placeholder
     INVALID_CHARACTERS: 'Bevat ongeldige tekens' // Placeholder
 } as const;

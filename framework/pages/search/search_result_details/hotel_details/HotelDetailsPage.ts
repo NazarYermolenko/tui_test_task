@@ -11,8 +11,11 @@ export class HotelDetailsPage extends BasePage implements ILoadable {
 
     @Step('Waiting for HotelDetailsPage to load')
     async waitForLoad() {
-        await expect(this.pricePanel.locators.wrapper()).toBeVisible()
+        await this.page.waitForLoadState('domcontentloaded')
+        await expect(this.pricePanel.locators.wrapper()).toBeVisible({ timeout: 15000 })
         return this
     }
+
+
 
 }

@@ -8,12 +8,12 @@ This document outlines the planned and existing validations for the passenger fo
 | :--- | :--- | :--- | :--- |
 | **First Name** | Required | Field must not be empty. | Vul de voornaam in (volgens paspoort) |
 | | Min Length | Minimum 2 characters. | - |
-| | Max Length | Maximum 50 characters. | - |
-| | Characters | Only letters, hyphens, and spaces. | - |
+| | Max Length | Maximum 50 characters (Observed limit: 32). | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
+| | Characters | Only letters, hyphens, and spaces. | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
 | **Last Name** | Required | Field must not be empty. | Vul de achternaam in (volgens paspoort) |
 | | Min Length | Minimum 2 characters. | - |
-| | Max Length | Maximum 50 characters. | - |
-| | Characters | Only letters, hyphens, and spaces. | - |
+| | Max Length | Maximum 50 characters (Observed limit: 32). | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
+| | Characters | Only letters, hyphens, and spaces. | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
 | **Gender** | Required | A title/gender must be selected. | Selecteer een geslacht |
 | **Nationality** | Required | Nationality must be selected. | - |
 | **Country** | Required | Country of residence must be selected. | - |

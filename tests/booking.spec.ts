@@ -1,6 +1,7 @@
 import { tuiFixture } from './fixtures/TuiFixture';
 import { expect } from '@playwright/test';
 import { WaitUtils } from '../framework/utils/WaitUtils';
+import { PassengerValidationMessages } from '../framework/pages/search/search_result_details/passenger_details/components/passenger_forms/PassengerValidationMessages';
 
 // Note: 'random' selection for the fields below is supported by the framework but disabled here 
 // due to inconsistent availability of search results for random combinations.
@@ -11,45 +12,47 @@ const searchCriteria = {
   rooms: { childrenCount: 1, adultsCount: 2, childrenAges: ['7'] }
 }
 
-tuiFixture('Tui NL > Passenger Information validation', async ({ mainPage }) => {
+tuiFixture('Tui NL > Passenger Information comprehensive validation', async ({ mainPage }) => {
   const searchResultsPage = await mainPage.searchPanel.performSearch(searchCriteria)
-
   const searchResults = await WaitUtils.waitAndGetResults(() => searchResultsPage.getSearchResults())
   const resultDetails = await searchResults.at(0)!.clickContinue()
-
   const summaryPage = await resultDetails.pricePanel.clickSummary()
-
   const bookPage = await summaryPage.pricePanel.clickBookNow()
-  await bookPage.clickContinue({ expectSuccess: false })
 
-  // Validate Lead Passenger form errors
   const leadForm = await bookPage.getLeadPassengerForm()
-  await leadForm.expectValidationErrors()
-
-  // Validate all support passenger form errors
   const supportForms = await bookPage.getSupportPassengerForms()
+
+  // 1. Validate 'Required' errors for all passengers (Lead + Support)
+  await bookPage.clickContinue({ expectSuccess: false })
+  await leadForm.expectValidationErrors()
   for (const form of supportForms) {
     await form.expectValidationErrors()
   }
-})
 
-tuiFixture('Tui NL > Passenger Information special characters validation', async ({ mainPage }) => {
-  const searchResultsPage = await mainPage.searchPanel.performSearch(searchCriteria)
-  const searchResults = await WaitUtils.waitAndGetResults(() => searchResultsPage.getSearchResults())
-  const resultDetails = await searchResults.at(0)!.clickContinue()
-  const summaryPage = await resultDetails.pricePanel.clickSummary()
-  const bookPage = await summaryPage.pricePanel.clickBookNow()
-
-  const leadForm = await bookPage.getLeadPassengerForm()
-  
-  // Test special characters in first name
+  // 2. Validate 'Special Characters/Format' errors for all passengers
   await leadForm.fillFirstName('John!@#')
-  await leadForm.fillLastName('Doe')
+  await leadForm.fillLastName('Doe$%^')
+  await leadForm.fillPostcode('1234')
+  await leadForm.fillEmail('not-an-email')
+  await leadForm.fillPhoneNumber('123')
+
+  let passengerIndex = 1;
+  for (const form of supportForms) {
+    await form.fillFirstName(`Kid${passengerIndex}!@#`)
+    await form.fillLastName(`Doe${passengerIndex}$%^`)
+    passengerIndex++;
+  }
+
   await bookPage.clickContinue({ expectSuccess: false })
+
+  // Validate specific error messages
+  await expect.soft(leadForm.locators.firstNameError()).toContainText(PassengerValidationMessages.NAME_LENGTH_AND_CHARS)
+  await expect.soft(leadForm.locators.lastNameError()).toContainText(PassengerValidationMessages.NAME_LENGTH_AND_CHARS)
   
-  // We expect some validation error here. 
-  // For now, we'll just check that some error message is visible near the first name
-  await expect(leadForm.locators.firstNameError()).toBeVisible()
-  
+  for (const form of supportForms) {
+    await expect.soft(form.locators.firstNameError()).toContainText(PassengerValidationMessages.NAME_LENGTH_AND_CHARS)
+    await expect.soft(form.locators.lastNameError()).toContainText(PassengerValidationMessages.NAME_LENGTH_AND_CHARS)
+  }
 })
+
 

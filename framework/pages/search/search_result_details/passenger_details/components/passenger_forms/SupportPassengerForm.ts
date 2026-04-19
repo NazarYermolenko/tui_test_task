@@ -21,12 +21,13 @@ export class SupportPassengerForm extends DynamicComponent {
     @Step("Validate support passenger form required field errors")
     async expectValidationErrors() {
         await Promise.all([
-            expect(this.locators.firstNameError()).toHaveText(PassengerValidationMessages.FIRST_NAME),
-            expect(this.locators.lastNameError()).toHaveText(PassengerValidationMessages.LAST_NAME),
-            expect(this.locators.genderError()).toHaveText(PassengerValidationMessages.GENDER),
-            expect(this.locators.dobError()).toHaveText(PassengerValidationMessages.DOB),
+            expect.soft(this.locators.firstNameError()).toHaveText(PassengerValidationMessages.FIRST_NAME),
+            expect.soft(this.locators.lastNameError()).toHaveText(PassengerValidationMessages.LAST_NAME),
+            expect.soft(this.locators.genderError()).toHaveText(PassengerValidationMessages.GENDER),
+            expect.soft(this.locators.dobError()).toHaveText(PassengerValidationMessages.DOB),
         ])
     }
+
 
     @Step("Fill support passenger first name: {0}")
     async fillFirstName(name: string) {
@@ -37,4 +38,17 @@ export class SupportPassengerForm extends DynamicComponent {
     async fillLastName(name: string) {
         await this.locators.lastName().fill(name);
     }
+
+    @Step("Fill support passenger gender: {0}")
+    async selectGender(gender: string) {
+        await this.locators.gender().selectOption(gender);
+    }
+
+    @Step("Fill support passenger date of birth: {0}-{1}-{2}")
+    async fillDateOfBirth(day: string, month: string, year: string) {
+        await this.locators.dobDay().fill(day);
+        await this.locators.dobMonth().fill(month);
+        await this.locators.dobYear().fill(year);
+    }
 }
+
