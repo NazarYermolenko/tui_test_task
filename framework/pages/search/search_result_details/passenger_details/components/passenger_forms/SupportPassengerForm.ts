@@ -27,4 +27,14 @@ export class SupportPassengerForm extends DynamicComponent {
             expect(this.locators.dobError()).toHaveText(PassengerValidationMessages.DOB),
         ])
     }
+
+    @Step("Fill support passenger first name: {0}")
+    async fillFirstName(name: string) {
+        await this.locators.firstName().fill(name);
+    }
+
+    @Step("Fill support passenger last name: {0}")
+    async fillLastName(name: string) {
+        await this.locators.lastName().fill(name);
+    }
 }

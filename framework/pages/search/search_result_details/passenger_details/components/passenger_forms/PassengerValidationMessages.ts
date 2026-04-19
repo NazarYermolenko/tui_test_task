@@ -8,5 +8,7 @@ export const PassengerValidationMessages = {
     POSTCODE: 'Vul de postcode in',
     CITY: 'Vul de woonplaats in',
     PHONE: 'Vul het telefoonnummer in',
-    EMAIL: 'Vul het e-mailadres in'
+    EMAIL: 'Vul het e-mailadres in',
+    INVALID_FORMAT: 'Ongeldig formaat', // Placeholder
+    INVALID_CHARACTERS: 'Bevat ongeldige tekens' // Placeholder
 } as const;

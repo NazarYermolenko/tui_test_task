@@ -47,4 +47,14 @@ export class LeadPassengerForm extends DynamicComponent {
             expect(this.locators.emailError()).toHaveText(PassengerValidationMessages.EMAIL),
         ])
     }
+
+    @Step("Fill lead passenger first name: {0}")
+    async fillFirstName(name: string) {
+        await this.locators.firstName().fill(name);
+    }
+
+    @Step("Fill lead passenger last name: {0}")
+    async fillLastName(name: string) {
+        await this.locators.lastName().fill(name);
+    }
 }
