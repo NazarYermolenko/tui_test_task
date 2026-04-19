@@ -1,6 +1,6 @@
 import { BasePage } from "../../../../../base/pages/BasePage";
 import { PassengerDetailsPage } from "../../passenger_details/PassengerDetailsPage";
-import { Step } from "../../../../../logger/StepDecorator";
+import { Step } from "../../../../../logger/Step";
 
 export class HolidayDetailsPricePanel extends BasePage {
     locators = {

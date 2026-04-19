@@ -1,4 +1,4 @@
-import { tui_fixture } from './fixtures/TuiFixture';
+import { tuiFixture } from './fixtures/TuiFixture';
 import { WaitUtils } from '../framework/utils/WaitUtils';
 
 // Note: 'random' selection for the fields below is supported by the framework but disabled here 
@@ -10,7 +10,7 @@ const searchCriteria = {
   rooms: { childrenCount: 1, adultsCount: 2, childrenAges: ['7'] }
 }
 
-tui_fixture('Tui NL > Passenger Information validation', async ({ mainPage }) => {
+tuiFixture('Tui NL > Passenger Information validation', async ({ mainPage }) => {
   const searchResultsPage = await mainPage.searchPanel.performSearch(searchCriteria)
 
   const searchResults = await WaitUtils.waitAndGetResults(() => searchResultsPage.getSearchResults())

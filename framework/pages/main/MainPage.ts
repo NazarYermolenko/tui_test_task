@@ -1,9 +1,9 @@
 import type { Page } from '@playwright/test';
 import { BasePage } from '../../base/pages/BasePage';
 import { CookiesModal } from './components/CookiesModal';
-import { SearchPanel } from './components/choice_search_component/SearchPanel';
+import { SearchPanel } from './components/search_panel/SearchPanel';
 import type { ILoadable } from '../../base/pages/ILoadable';
-import { Step } from '../../logger/StepDecorator';
+import { Step } from '../../logger/Step';
 
 import { TuiUrlProvider } from '../../utils/TuiUrlProvider';
 

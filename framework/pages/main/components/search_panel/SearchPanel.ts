@@ -5,11 +5,11 @@ import { DepartureSelectorComponent } from "./departure_selector/DepartureSelect
 import { logger } from "../../../../logger/Logger";
 import { DestinationListSelectorComponent } from "./destination_list_selector/DestinationListSelectorComponent";
 import { DepartureDateSelectorComponent } from "./departure_date_selector/DepartureDateSelectorComponent";
-import { RoomsAndGuestsSelector } from "./rooms_and_guests/RoomsAndGuestsSelector";
+import { RoomsAndGuestsSelectorComponent } from "./rooms_and_guests/RoomsAndGuestsSelectorComponent";
 import { SearchResultsPage } from "../../../search/search_results/SearchResultsPage";
 import { SearchPanelSelectors } from "./SearchPanelSelectors";
 import type { SearchCriteria } from "./SearchCriteria";
-import { Step } from "../../../../logger/StepDecorator";
+import { Step } from "../../../../logger/Step";
 
 
 export class SearchPanel extends BasePage implements ILoadable {
@@ -32,9 +32,9 @@ export class SearchPanel extends BasePage implements ILoadable {
     async openSelector(type: typeof SearchPanelSelectors.DepartureAirport): Promise<DepartureSelectorComponent>
     async openSelector(type: typeof SearchPanelSelectors.Destination): Promise<DestinationListSelectorComponent>
     async openSelector(type: typeof SearchPanelSelectors.DepartureDate): Promise<DepartureDateSelectorComponent>
-    async openSelector(type: typeof SearchPanelSelectors.RoomsAndGuests): Promise<RoomsAndGuestsSelector>
+    async openSelector(type: typeof SearchPanelSelectors.RoomsAndGuests): Promise<RoomsAndGuestsSelectorComponent>
     @Step('Opening search selector')
-    async openSelector(type: typeof SearchPanelSelectors[keyof typeof SearchPanelSelectors]): Promise<DepartureSelectorComponent | DestinationListSelectorComponent | DepartureDateSelectorComponent | RoomsAndGuestsSelector> {
+    async openSelector(type: typeof SearchPanelSelectors[keyof typeof SearchPanelSelectors]): Promise<DepartureSelectorComponent | DestinationListSelectorComponent | DepartureDateSelectorComponent | RoomsAndGuestsSelectorComponent> {
         switch (type) {
             case SearchPanelSelectors.DepartureAirport:
                 await this.locators.departureAirportInput().click()
@@ -47,7 +47,7 @@ export class SearchPanel extends BasePage implements ILoadable {
                 return new DepartureDateSelectorComponent(this.page).waitForLoad()
             case SearchPanelSelectors.RoomsAndGuests:
                 await this.locators.roomsAndGuestsInput().click()
-                return new RoomsAndGuestsSelector(this.page).waitForLoad()
+                return new RoomsAndGuestsSelectorComponent(this.page).waitForLoad()
             default:
                 throw new Error(`Unknown selector: ${type}`)
         }

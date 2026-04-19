@@ -1,5 +1,5 @@
 import { DynamicComponent } from "../../../../base/dynamic_components/DynamicComponent";
-import { Step } from "../../../../logger/StepDecorator";
+import { Step } from "../../../../logger/Step";
 import { HotelDetailsPage } from "../../search_result_details/hotel_details/HotelDetailsPage";
 
 export class ResultItem extends DynamicComponent {

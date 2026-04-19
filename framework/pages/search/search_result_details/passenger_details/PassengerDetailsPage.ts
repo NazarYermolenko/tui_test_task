@@ -1,7 +1,7 @@
 import { BasePage } from "../../../../base/pages/BasePage";
 import { PassengerForm } from "./components/PassengerForm";
 import { PassengerTypes } from "./components/passenger_forms/PassengerTypes";
-import { Step } from "../../../../logger/StepDecorator";
+import { Step } from "../../../../logger/Step";
 import type { ILoadable } from "../../../../base/pages/ILoadable";
 import { expect } from "@playwright/test";
 

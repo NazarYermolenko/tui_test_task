@@ -1,7 +1,7 @@
 import { DynamicComponent } from "../../../../../base/dynamic_components/DynamicComponent";
-import { Step } from "../../../../../logger/StepDecorator";
+import { Step } from "../../../../../logger/Step";
 
-export class ChildrenAgeSelector extends DynamicComponent {
+export class ChildrenAgeSelectorComponent extends DynamicComponent {
     locators = {
         options: () => this.wrapper().locator('option')
     }

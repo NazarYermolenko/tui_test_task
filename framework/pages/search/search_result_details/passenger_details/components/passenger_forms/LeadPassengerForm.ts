@@ -1,6 +1,6 @@
 import { DynamicComponent } from "../../../../../../base/dynamic_components/DynamicComponent";
 import { expect } from "@playwright/test";
-import { Step } from "../../../../../../logger/StepDecorator";
+import { Step } from "../../../../../../logger/Step";
 import { PassengerValidationMessages } from "./PassengerValidationMessages";
 
 export class LeadPassengerForm extends DynamicComponent {
