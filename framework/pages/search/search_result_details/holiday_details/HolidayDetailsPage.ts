@@ -9,7 +9,7 @@ export class HolidayDetailsPage extends BasePage implements ILoadable {
         return new HolidayDetailsPricePanel(this.page)
     }
 
-    @Step('Waiting for HolidayDetailsPage to load')
+    @Step('Load')
     async waitForLoad() {
         await this.pricePanel.locators.wrapper().waitFor({ state: 'visible' })
         return this

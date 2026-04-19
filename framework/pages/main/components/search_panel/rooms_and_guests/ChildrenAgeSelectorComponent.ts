@@ -5,11 +5,11 @@ export class ChildrenAgeSelectorComponent extends DynamicComponent {
     locators = {
         options: () => this.wrapper().locator('option')
     }
-    @Step('Setting children age')
+    @Step('Age: {0}')
     async setAge(age: string) {
         await this.wrapper().selectOption({ label: age })
     }
-    @Step('Getting available ages')
+    @Step('Get available')
     async getAvailableAges() {
         return this.locators.options().allTextContents()
     }

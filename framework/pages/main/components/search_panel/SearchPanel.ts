@@ -23,7 +23,7 @@ export class SearchPanel extends BasePage implements ILoadable {
         searchButton: () => this.locators.componentWrapper().locator('[data-test-id="search-button"]')
     }
 
-    @Step('Waiting for ChoiceSearchComponent to load')
+    @Step('Load')
     async waitForLoad(): Promise<this> {
         await expect(this.locators.componentWrapper()).toBeVisible()
         return this
@@ -33,7 +33,7 @@ export class SearchPanel extends BasePage implements ILoadable {
     async openSelector(type: typeof SearchPanelSelectors.Destination): Promise<DestinationListSelectorComponent>
     async openSelector(type: typeof SearchPanelSelectors.DepartureDate): Promise<DepartureDateSelectorComponent>
     async openSelector(type: typeof SearchPanelSelectors.RoomsAndGuests): Promise<RoomsAndGuestsSelectorComponent>
-    @Step('Opening search selector')
+    @Step('Open {0}')
     async openSelector(type: typeof SearchPanelSelectors[keyof typeof SearchPanelSelectors]): Promise<DepartureSelectorComponent | DestinationListSelectorComponent | DepartureDateSelectorComponent | RoomsAndGuestsSelectorComponent> {
         switch (type) {
             case SearchPanelSelectors.DepartureAirport:
@@ -54,7 +54,7 @@ export class SearchPanel extends BasePage implements ILoadable {
 
     }
 
-    @Step('Getting selector value')
+    @Step('Get {0}')
     async getSelectorValue(key: keyof typeof SearchPanelSelectors) {
         switch (key) {
             case SearchPanelSelectors.DepartureAirport:
@@ -68,13 +68,13 @@ export class SearchPanel extends BasePage implements ILoadable {
         }
     }
 
-    @Step('Clicking search button')
+    @Step('Search')
     async clickSearchButton() {
         await this.locators.searchButton().click()
         return new SearchResultsPage(this.page).waitForLoad()
     }
 
-    @Step('Performing search')
+    @Step('Perform')
     async performSearch(criteria: SearchCriteria) {
 
         if (criteria.departureAirport) {

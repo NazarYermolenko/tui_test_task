@@ -7,7 +7,7 @@ export class HolidayDetailsPricePanel extends BasePage {
         wrapper: () => this.page.locator(".ProgressbarNavigation__pricePanelWrapper"),
         bookNowButton: () => this.locators.wrapper().locator('button').filter({ visible: true })
     }
-    @Step('Clicking book now button')
+    @Step('Book now')
     async clickBookNow() {
         const button = this.locators.bookNowButton()
         await button.click()

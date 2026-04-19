@@ -32,7 +32,7 @@ export class LeadPassengerForm extends DynamicComponent {
         emailError: () => this.wrapper().locator('[aria-label="E-mailadres"] .inputs__errorMessage'),
     }
 
-    @Step("Validate lead passenger form required field errors")
+    @Step("Validate errors")
     async expectValidationErrors() {
         await Promise.all([
             expect.soft(this.locators.firstNameError()).toHaveText(PassengerValidationMessages.FIRST_NAME),
@@ -49,50 +49,50 @@ export class LeadPassengerForm extends DynamicComponent {
     }
 
 
-    @Step("Fill lead passenger first name: {0}")
+    @Step("{0}")
     async fillFirstName(name: string) {
         await this.locators.firstName().fill(name);
     }
 
-    @Step("Fill lead passenger last name: {0}")
+    @Step("{0}")
     async fillLastName(name: string) {
         await this.locators.lastName().fill(name);
     }
 
-    @Step("Fill lead passenger gender: {0}")
+    @Step("{0}")
     async selectGender(gender: string) {
         await this.locators.gender().selectOption(gender);
     }
 
-    @Step("Fill lead passenger date of birth: {0}-{1}-{2}")
+    @Step("{0}-{1}-{2}")
     async fillDateOfBirth(day: string, month: string, year: string) {
         await this.locators.dobDay().fill(day);
         await this.locators.dobMonth().fill(month);
         await this.locators.dobYear().fill(year);
     }
 
-    @Step("Fill lead passenger address: {0} {1}")
+    @Step("{0} {1}")
     async fillAddress(street: string, houseNumber: string) {
         await this.locators.address().fill(street);
         await this.locators.houseNumber().fill(houseNumber);
     }
 
-    @Step("Fill lead passenger postcode: {0}")
+    @Step("{0}")
     async fillPostcode(postcode: string) {
         await this.locators.postcode().fill(postcode);
     }
 
-    @Step("Fill lead passenger city: {0}")
+    @Step("{0}")
     async fillCity(city: string) {
         await this.locators.city().fill(city);
     }
 
-    @Step("Fill lead passenger phone number: {0}")
+    @Step("{0}")
     async fillPhoneNumber(phoneNumber: string) {
         await this.locators.phoneNumber().fill(phoneNumber);
     }
 
-    @Step("Fill lead passenger email: {0}")
+    @Step("{0}")
     async fillEmail(email: string) {
         await this.locators.email().fill(email);
     }

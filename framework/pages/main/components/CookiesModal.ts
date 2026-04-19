@@ -10,19 +10,19 @@ export class CookiesModal extends BasePage implements ILoadable, IClosable {
         acceptCookiesButton: () => this.locators.cookieConsentModal().getByRole('button', { name: 'Accepteer cookies' }),
     }
 
-    @Step('Accepting cookies on CookiesModal')
+    @Step('Accept')
     async acceptCookies() {
         await this.locators.acceptCookiesButton().click()
         await this.waitForClose()
     }
 
-    @Step('Waiting for CookiesModal to load')
+    @Step('Load')
     async waitForLoad(): Promise<this> {
         await expect(this.locators.cookieConsentModal()).toBeVisible()
         return this
     }
 
-    @Step('Waiting for CookiesModal to close')
+    @Step('Wait for close')
     async waitForClose(): Promise<void> {
         await expect(this.locators.cookieConsentModal()).toBeHidden()
     }

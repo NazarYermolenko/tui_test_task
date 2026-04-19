@@ -12,28 +12,28 @@ export class DepartureDateSelectorComponent extends BasePage implements ILoadabl
         saveButton: () => this.locators.wrapper().locator('.DropModal__apply')
     }
 
-    @Step('Getting available days')
+    @Step('Get available')
     async getAvailableDays() {
         const availableDays = (await this.locators.days().allTextContents()).map(day => day.trim())
         return availableDays
     }
 
-    @Step('Setting available day')
+    @Step('Set {0}')
     async setAvailableDay(day: string) {
         await this.locators.days().filter({ hasText: new RegExp(`^${day}$`) }).click()
     }
 
-    @Step('Clicking next month button')
+    @Step('Next month')
     async clickNextMonth() {
         await this.locators.nextMonthButton().click()
     }
 
-    @Step('Clicking save button')
+    @Step('Save')
     async clickSave() {
         await this.locators.saveButton().click()
     }
 
-    @Step('Waiting for DepartureDateSelectorComponent to load')
+    @Step('Load')
     async waitForLoad(): Promise<this> {
         await expect(this.locators.wrapper()).toBeVisible()
         await expect(this.locators.days().first()).toBeVisible()
