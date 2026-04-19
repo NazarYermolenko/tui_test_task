@@ -1,11 +1,11 @@
 import type { Page } from '@playwright/test';
-import { BasePage } from '../../base/pages/BasePage';
-import { CookiesModal } from './components/CookiesModal';
-import { SearchPanel } from './components/choice_search_component/SearchPanel';
-import type { ILoadable } from '../../base/pages/ILoadable';
-import { Step } from '../../logger/StepDecorator';
+import { BasePage } from '@base/pages/BasePage';
+import { CookiesModal } from '@pages/main/components/CookiesModal';
+import { SearchPanel } from '@pages/main/components/search_panel/SearchPanel';
+import type { ILoadable } from '@base/pages/ILoadable';
+import { Step } from '@logger/Step';
 
-import { TuiUrlProvider } from '../../utils/TuiUrlProvider';
+import { TuiUrlProvider } from '@utils/TuiUrlProvider';
 
 export class MainPage extends BasePage implements ILoadable {
   get searchPanel() {

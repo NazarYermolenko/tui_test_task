@@ -1,8 +1,8 @@
-import { BasePage } from "../../../base/pages/BasePage";
-import type { ILoadable } from "../../../base/pages/ILoadable";
-import { SearchPanel } from "../../main/components/choice_search_component/SearchPanel";
-import { ResultItem } from "./components/ResultItem";
-import { Step } from "../../../logger/StepDecorator";
+import { BasePage } from "@base/pages/BasePage";
+import type { ILoadable } from "@base/pages/ILoadable";
+import { SearchPanel } from "@pages/main/components/search_panel/SearchPanel";
+import { ResultItem } from "@pages/search/search_results/components/ResultItem";
+import { Step } from "@logger/Step";
 
 export class SearchResultsPage extends BasePage implements ILoadable {
     locators = {

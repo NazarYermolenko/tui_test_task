@@ -1,7 +1,7 @@
-import { DynamicComponent } from "../../../../../../base/dynamic_components/DynamicComponent";
+import { DynamicComponent } from "@base/dynamic_components/DynamicComponent";
 import { expect } from "@playwright/test";
-import { Step } from "../../../../../../logger/StepDecorator";
-import { PassengerValidationMessages } from "./PassengerValidationMessages";
+import { Step } from "@logger/Step";
+import { PassengerValidationMessages } from "@pages/search/search_result_details/passenger_details/components/passenger_forms/PassengerValidationMessages";
 
 export class LeadPassengerForm extends DynamicComponent {
     locators = {
@@ -35,16 +35,65 @@ export class LeadPassengerForm extends DynamicComponent {
     @Step("Validate lead passenger form required field errors")
     async expectValidationErrors() {
         await Promise.all([
-            expect(this.locators.firstNameError()).toHaveText(PassengerValidationMessages.FIRST_NAME),
-            expect(this.locators.lastNameError()).toHaveText(PassengerValidationMessages.LAST_NAME),
-            expect(this.locators.genderError()).toHaveText(PassengerValidationMessages.GENDER),
-            expect(this.locators.dobError()).toHaveText(PassengerValidationMessages.DOB),
-            expect(this.locators.addressError()).toHaveText(PassengerValidationMessages.ADDRESS),
-            expect(this.locators.houseNumberError()).toHaveText(PassengerValidationMessages.HOUSE_NUMBER),
-            expect(this.locators.postcodeError()).toHaveText(PassengerValidationMessages.POSTCODE),
-            expect(this.locators.cityError()).toHaveText(PassengerValidationMessages.CITY),
-            expect(this.locators.phoneNumberError()).toHaveText(PassengerValidationMessages.PHONE),
-            expect(this.locators.emailError()).toHaveText(PassengerValidationMessages.EMAIL),
+            expect.soft(this.locators.firstNameError()).toHaveText(PassengerValidationMessages.FIRST_NAME),
+            expect.soft(this.locators.lastNameError()).toHaveText(PassengerValidationMessages.LAST_NAME),
+            expect.soft(this.locators.genderError()).toHaveText(PassengerValidationMessages.GENDER),
+            expect.soft(this.locators.dobError()).toHaveText(PassengerValidationMessages.DOB),
+            expect.soft(this.locators.addressError()).toHaveText(PassengerValidationMessages.ADDRESS),
+            expect.soft(this.locators.houseNumberError()).toHaveText(PassengerValidationMessages.HOUSE_NUMBER),
+            expect.soft(this.locators.postcodeError()).toHaveText(PassengerValidationMessages.POSTCODE),
+            expect.soft(this.locators.cityError()).toHaveText(PassengerValidationMessages.CITY),
+            expect.soft(this.locators.phoneNumberError()).toHaveText(PassengerValidationMessages.PHONE),
+            expect.soft(this.locators.emailError()).toHaveText(PassengerValidationMessages.EMAIL),
         ])
+    }
+
+
+    @Step("Fill lead passenger first name: {0}")
+    async fillFirstName(name: string) {
+        await this.locators.firstName().fill(name);
+    }
+
+    @Step("Fill lead passenger last name: {0}")
+    async fillLastName(name: string) {
+        await this.locators.lastName().fill(name);
+    }
+
+    @Step("Fill lead passenger gender: {0}")
+    async selectGender(gender: string) {
+        await this.locators.gender().selectOption(gender);
+    }
+
+    @Step("Fill lead passenger date of birth: {0}-{1}-{2}")
+    async fillDateOfBirth(day: string, month: string, year: string) {
+        await this.locators.dobDay().fill(day);
+        await this.locators.dobMonth().fill(month);
+        await this.locators.dobYear().fill(year);
+    }
+
+    @Step("Fill lead passenger address: {0} {1}")
+    async fillAddress(street: string, houseNumber: string) {
+        await this.locators.address().fill(street);
+        await this.locators.houseNumber().fill(houseNumber);
+    }
+
+    @Step("Fill lead passenger postcode: {0}")
+    async fillPostcode(postcode: string) {
+        await this.locators.postcode().fill(postcode);
+    }
+
+    @Step("Fill lead passenger city: {0}")
+    async fillCity(city: string) {
+        await this.locators.city().fill(city);
+    }
+
+    @Step("Fill lead passenger phone number: {0}")
+    async fillPhoneNumber(phoneNumber: string) {
+        await this.locators.phoneNumber().fill(phoneNumber);
+    }
+
+    @Step("Fill lead passenger email: {0}")
+    async fillEmail(email: string) {
+        await this.locators.email().fill(email);
     }
 }

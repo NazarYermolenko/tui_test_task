@@ -1,6 +1,6 @@
-import { DynamicComponent } from "../../../../base/dynamic_components/DynamicComponent";
-import { Step } from "../../../../logger/StepDecorator";
-import { HotelDetailsPage } from "../../search_result_details/hotel_details/HotelDetailsPage";
+import { DynamicComponent } from "@base/dynamic_components/DynamicComponent";
+import { Step } from "@logger/Step";
+import { HotelDetailsPage } from "@pages/search/search_result_details/hotel_details/HotelDetailsPage";
 
 export class ResultItem extends DynamicComponent {
     locators = {
@@ -16,6 +16,7 @@ export class ResultItem extends DynamicComponent {
         return new HotelDetailsPage(this.wrapper().page()).waitForLoad()
     }
 
+    @Step('Getting hotel name from ResultItem')
     async getHotelName() {
         return (await this.locators.hotelName().textContent())?.trim() || 'Unknown Hotel'
     }

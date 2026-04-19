@@ -1,11 +1,11 @@
 import { expect } from "@playwright/test";
-import { BasePage } from "../../../../../base/pages/BasePage";
-import type { ILoadable } from "../../../../../base/pages/ILoadable";
-import { ChildrenAgeSelector } from "./ChildrenAgeSelector";
-import type { IClosable } from "../../../../../base/pages/IClosable";
-import { Step } from "../../../../../logger/StepDecorator";
+import { BasePage } from "@base/pages/BasePage";
+import type { ILoadable } from "@base/pages/ILoadable";
+import { ChildrenAgeSelectorComponent } from "@pages/main/components/search_panel/rooms_and_guests/ChildrenAgeSelectorComponent";
+import type { IClosable } from "@base/pages/IClosable";
+import { Step } from "@logger/Step";
 
-export class RoomsAndGuestsSelector extends BasePage implements ILoadable, IClosable {
+export class RoomsAndGuestsSelectorComponent extends BasePage implements ILoadable, IClosable {
     locators = {
         wrapper: () => this.page.locator('section[aria-label="room and guest"]'),
         adultsCountSelector: () => this.locators.wrapper().locator('.AdultSelector__adultSelector select'),
@@ -36,12 +36,12 @@ export class RoomsAndGuestsSelector extends BasePage implements ILoadable, IClos
     }
 
     @Step('Getting children age selectors')
-    async getChildrenAgeSelectors(): Promise<ChildrenAgeSelector[]> {
-        return Promise.all((await this.locators.childrenAgeSelector().all()).map((locator) => new ChildrenAgeSelector(() => locator)))
+    async getChildrenAgeSelectors(): Promise<ChildrenAgeSelectorComponent[]> {
+        return Promise.all((await this.locators.childrenAgeSelector().all()).map((locator) => new ChildrenAgeSelectorComponent(() => locator)))
     }
 
 
-    @Step('Clicking save button on RoomsAndGuestsSelector')
+    @Step('Clicking save button on RoomsAndGuestsSelectorComponent')
     async clickSave() {
         await this.locators.saveButton().click();
     }
