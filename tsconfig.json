@@ -2,24 +2,12 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     "paths": {
-      "@framework/*": [
-        "./framework/*"
-      ],
-      "@pages/*": [
-        "./framework/pages/*"
-      ],
-      "@utils/*": [
-        "./framework/utils/*"
-      ],
-      "@logger/*": [
-        "./framework/logger/*"
-      ],
-      "@base/*": [
-        "./framework/base/*"
-      ],
-      "@tests/*": [
-        "./tests/*"
-      ]
+      "@framework/*": ["./framework/*"],
+      "@pages/*": ["./framework/pages/*"],
+      "@utils/*": ["./framework/utils/*"],
+      "@logger/*": ["./framework/logger/*"],
+      "@base/*": ["./framework/base/*"],
+      "@tests/*": ["./tests/*"]
     },
     "experimentalDecorators": false,
     // File Layout
@@ -30,13 +18,8 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "target": "esnext",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "types": [
-      "node"
-    ],
+    "lib": ["esnext", "dom"],
+    "types": ["node"],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -65,11 +48,6 @@
     "moduleDetection": "force",
     "skipLibCheck": true
   },
-  "include": [
-    "framework/**/*.ts",
-    "tests/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["framework/**/*.ts", "tests/**/*.ts"],
+  "exclude": ["node_modules"]
 }
