@@ -1,11 +1,10 @@
-import type { Locator } from "@playwright/test"
+import type { Locator } from '@playwright/test';
 
 export abstract class DynamicComponent {
-    locators: Record<string, () => Locator> = {}
-    readonly wrapper: () => Locator
+  locators: Record<string, () => Locator> = {};
+  readonly wrapper: () => Locator;
 
-    constructor(wrapper: () => Locator) {
-        this.wrapper = wrapper
-    }
-
+  constructor(wrapper: () => Locator) {
+    this.wrapper = wrapper;
+  }
 }

@@ -1,3 +1,3 @@
 export interface IClosable {
-    waitForClose(): Promise<void>
+  waitForClose(): Promise<void>;
 }

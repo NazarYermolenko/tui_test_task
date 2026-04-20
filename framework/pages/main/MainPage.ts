@@ -5,7 +5,6 @@ import { SearchPanel } from '@pages/main/components/search_panel/SearchPanel';
 import type { ILoadable } from '@base/pages/ILoadable';
 import { Step } from '@logger/Step';
 
-
 export class MainPage extends BasePage implements ILoadable {
   get searchPanel() {
     return new SearchPanel(this.page);
@@ -13,18 +12,18 @@ export class MainPage extends BasePage implements ILoadable {
 
   @Step('Load')
   async waitForLoad(): Promise<this> {
-    await this.searchPanel.waitForLoad()
-    return this
+    await this.searchPanel.waitForLoad();
+    return this;
   }
 
   @Step('Open {url}')
   static async open(page: Page, url: string) {
     await page.goto(url);
-    return new MainPage(page).waitForLoad()
+    return new MainPage(page).waitForLoad();
   }
 
   @Step('Wait for cookies')
   async waitForCookiesModal() {
-    return new CookiesModal(this.page).waitForLoad()
+    return new CookiesModal(this.page).waitForLoad();
   }
 }

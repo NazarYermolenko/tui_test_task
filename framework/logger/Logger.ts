@@ -7,14 +7,14 @@ import { AsyncLocalStorage } from 'async_hooks';
 const { combine, timestamp, printf, colorize } = winston.format;
 
 /**
- * Storage for logging context, allowing class name and method name to be tracked 
+ * Storage for logging context, allowing class name and method name to be tracked
  * across asynchronous calls.
  */
 export const loggerContext = new AsyncLocalStorage<{ context: string; method: string }>();
 
 /**
  * Custom log format that includes timestamp, context (class/method), and log level.
- * 
+ *
  * Example output line:
  * 2024-04-19 21:01:46 [SearchResultsPage.clickContinue] info: Clicking continue button
  */
@@ -34,21 +34,14 @@ const logFormat = printf(({ level, message, timestamp, context, method }) => {
  */
 export const logger = winston.createLogger({
   level: 'info',
-  format: combine(
-    timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-    logFormat
-  ),
+  format: combine(timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), logFormat),
   transports: [
     new winston.transports.Console({
-      format: combine(
-        colorize(),
-        timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
-        logFormat
-      )
+      format: combine(colorize(), timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }), logFormat),
     }),
     new winston.transports.File({
       filename: 'test-results/test-run.log',
-      level: 'debug'
-    })
-  ]
+      level: 'debug',
+    }),
+  ],
 });

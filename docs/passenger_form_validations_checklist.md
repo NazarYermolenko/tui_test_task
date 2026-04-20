@@ -4,58 +4,58 @@ This document outlines the planned and existing validations for the passenger fo
 
 ## 1. General Fields (All Passengers)
 
-| Field | Validation Type | Description | Error Message (NL) |
-| :--- | :--- | :--- | :--- |
-| **First Name** | Required | Field must not be empty. | Vul de voornaam in (volgens paspoort) |
-| | Min Length | Minimum 2 characters. | - |
-| | Max Length | Maximum 50 characters (Observed limit: 32). | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
-| | Characters | Only letters, hyphens, and spaces. | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
-| **Last Name** | Required | Field must not be empty. | Vul de achternaam in (volgens paspoort) |
-| | Min Length | Minimum 2 characters. | - |
-| | Max Length | Maximum 50 characters (Observed limit: 32). | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
-| | Characters | Only letters, hyphens, and spaces. | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
-| **Gender** | Required | A title/gender must be selected. | Selecteer een geslacht |
-| **Nationality** | Required | Nationality must be selected. | - |
-| **Country** | Required | Country of residence must be selected. | - |
-| **Date of Birth** | Required | Full date must be provided. | Voer de geboortedatum als volgt in: DD/MM/JJJJ |
-| | Format | Must follow DD/MM/YYYY format. | Voer de geboortedatum als volgt in: DD/MM/JJJJ |
-| | Valid Date | Must be a calendar-valid date (e.g., no 31/02). | - |
-| | Age Logic | Must match the selected passenger type (Adult/Child/Infant). | - |
-| | Future Date | Cannot be a date in the future. | - |
+| Field             | Validation Type | Description                                                  | Error Message (NL)                                                  |
+| :---------------- | :-------------- | :----------------------------------------------------------- | :------------------------------------------------------------------ |
+| **First Name**    | Required        | Field must not be empty.                                     | Vul de voornaam in (volgens paspoort)                               |
+|                   | Min Length      | Minimum 2 characters.                                        | -                                                                   |
+|                   | Max Length      | Maximum 50 characters (Observed limit: 32).                  | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
+|                   | Characters      | Only letters, hyphens, and spaces.                           | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
+| **Last Name**     | Required        | Field must not be empty.                                     | Vul de achternaam in (volgens paspoort)                             |
+|                   | Min Length      | Minimum 2 characters.                                        | -                                                                   |
+|                   | Max Length      | Maximum 50 characters (Observed limit: 32).                  | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
+|                   | Characters      | Only letters, hyphens, and spaces.                           | Gebruik tussen de 2 en 32 letters. Geen cijfers of speciale tekens. |
+| **Gender**        | Required        | A title/gender must be selected.                             | Selecteer een geslacht                                              |
+| **Nationality**   | Required        | Nationality must be selected.                                | -                                                                   |
+| **Country**       | Required        | Country of residence must be selected.                       | -                                                                   |
+| **Date of Birth** | Required        | Full date must be provided.                                  | Voer de geboortedatum als volgt in: DD/MM/JJJJ                      |
+|                   | Format          | Must follow DD/MM/YYYY format.                               | Voer de geboortedatum als volgt in: DD/MM/JJJJ                      |
+|                   | Valid Date      | Must be a calendar-valid date (e.g., no 31/02).              | -                                                                   |
+|                   | Age Logic       | Must match the selected passenger type (Adult/Child/Infant). | -                                                                   |
+|                   | Future Date     | Cannot be a date in the future.                              | -                                                                   |
 
 ## 2. Special Characters Policy
 
 The following fields have specific restrictions regarding special characters to ensure system compatibility and compliance with travel documentation requirements:
 
-| Field | Allowed Characters | Prohibited Characters | Notes |
-| :--- | :--- | :--- | :--- |
-| **First/Last Name** | A-Z, a-z, spaces, hyphens (-), accents (e.g., é, ö) | Numbers, symbols (!@#$%^&*), brackets, dots | Names should match the passport exactly. |
-| **Address/City** | A-Z, a-z, 0-9, spaces, hyphens, dots | Symbols (!@#$%^&*) | - |
-| **Phone Number** | 0-9, +, spaces, hyphens | Letters, all symbols except + and - | - |
-| **Postcode** | 0-9, A-Z, spaces | All symbols, lowercase letters (for NL) | NL: 1234 AB format. |
-| **Email** | A-Z, a-z, 0-9, @, ., _, - | Spaces, most other symbols | Must follow RFC 5322. |
+| Field               | Allowed Characters                                  | Prohibited Characters                        | Notes                                    |
+| :------------------ | :-------------------------------------------------- | :------------------------------------------- | :--------------------------------------- |
+| **First/Last Name** | A-Z, a-z, spaces, hyphens (-), accents (e.g., é, ö) | Numbers, symbols (!@#$%^&\*), brackets, dots | Names should match the passport exactly. |
+| **Address/City**    | A-Z, a-z, 0-9, spaces, hyphens, dots                | Symbols (!@#$%^&\*)                          | -                                        |
+| **Phone Number**    | 0-9, +, spaces, hyphens                             | Letters, all symbols except + and -          | -                                        |
+| **Postcode**        | 0-9, A-Z, spaces                                    | All symbols, lowercase letters (for NL)      | NL: 1234 AB format.                      |
+| **Email**           | A-Z, a-z, 0-9, @, ., \_, -                          | Spaces, most other symbols                   | Must follow RFC 5322.                    |
 
 ## 3. Lead Passenger Specific Fields (Contact Details)
 
-| Field | Validation Type | Description | Error Message (NL) |
-| :--- | :--- | :--- | :--- |
-| **Address** | Required | Street name must be provided. | Vul de straatnaam in |
-| **House Number** | Required | House number must be provided. | Vul het huisnummer in |
-| **Postcode** | Required | Postcode must be provided. | Vul de postcode in |
-| | Format | Must follow NL format (1234 AB) if NL is selected. | - |
-| **City** | Required | City name must be provided. | Vul de woonplaats in |
-| **Phone Number** | Required | Mobile phone number must be provided. | Vul het telefoonnummer in |
-| | Digits Only | Only numbers and '+' are allowed. | - |
-| | Length | Should be between 10 and 15 digits. | - |
-| **Email** | Required | Email address must be provided. | Vul het e-mailadres in |
-| | Format | Must be a valid email format (user@domain.com). | - |
+| Field            | Validation Type | Description                                        | Error Message (NL)        |
+| :--------------- | :-------------- | :------------------------------------------------- | :------------------------ |
+| **Address**      | Required        | Street name must be provided.                      | Vul de straatnaam in      |
+| **House Number** | Required        | House number must be provided.                     | Vul het huisnummer in     |
+| **Postcode**     | Required        | Postcode must be provided.                         | Vul de postcode in        |
+|                  | Format          | Must follow NL format (1234 AB) if NL is selected. | -                         |
+| **City**         | Required        | City name must be provided.                        | Vul de woonplaats in      |
+| **Phone Number** | Required        | Mobile phone number must be provided.              | Vul het telefoonnummer in |
+|                  | Digits Only     | Only numbers and '+' are allowed.                  | -                         |
+|                  | Length          | Should be between 10 and 15 digits.                | -                         |
+| **Email**        | Required        | Email address must be provided.                    | Vul het e-mailadres in    |
+|                  | Format          | Must be a valid email format (user@domain.com).    | -                         |
 
 ## 3. Support Passenger Specific Logic
 
-| Logic | Description |
-| :--- | :--- |
-| **Same as Lead** | If "Same last name as lead" is checked, the field should be pre-filled/synchronized. |
-| **Age Constraints** | Validated against the birth date provided during the search phase. |
+| Logic               | Description                                                                          |
+| :------------------ | :----------------------------------------------------------------------------------- |
+| **Same as Lead**    | If "Same last name as lead" is checked, the field should be pre-filled/synchronized. |
+| **Age Constraints** | Validated against the birth date provided during the search phase.                   |
 
 ## 4. Proposed Test Cases for Validation
 
