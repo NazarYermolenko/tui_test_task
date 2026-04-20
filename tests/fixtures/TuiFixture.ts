@@ -1,0 +1,18 @@
+import { test as base } from '@playwright/test';
+import { MainPage } from '@pages/main/MainPage';
+import { TuiUrlProvider } from '@utils/TuiUrlProvider';
+
+export const tuiFixture = base.extend<{ mainPage: MainPage }>({
+  mainPage: async ({ page }, use) => {
+    const tuiUrl = TuiUrlProvider.getBaseUrl();
+    const mainPage = await MainPage.open(page, tuiUrl);
+
+    // as most cases will require that :)
+    const cookiesModal = await mainPage.waitForCookiesModal();
+    await cookiesModal.acceptCookies();
+
+    await use(mainPage);
+  },
+});
+
+export { expect, test } from '@playwright/test';
