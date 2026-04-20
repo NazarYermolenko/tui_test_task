@@ -1,3 +1,3 @@
 export interface ILoadable {
-    waitForLoad(): Promise<this>
+  waitForLoad(): Promise<this>;
 }

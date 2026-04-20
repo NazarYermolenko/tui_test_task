@@ -47,7 +47,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
   "include": ["framework/**/*.ts", "tests/**/*.ts"],
   "exclude": ["node_modules"]

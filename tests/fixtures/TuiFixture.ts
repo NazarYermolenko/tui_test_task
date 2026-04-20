@@ -4,15 +4,15 @@ import { TuiUrlProvider } from '@utils/TuiUrlProvider';
 
 export const tuiFixture = base.extend<{ mainPage: MainPage }>({
   mainPage: async ({ page }, use) => {
-    const tuiUrl = TuiUrlProvider.getBaseUrl()
+    const tuiUrl = TuiUrlProvider.getBaseUrl();
     const mainPage = await MainPage.open(page, tuiUrl);
 
-    // as most cases will require that :) 
-    const cookiesModal = await mainPage.waitForCookiesModal()
-    await cookiesModal.acceptCookies()
+    // as most cases will require that :)
+    const cookiesModal = await mainPage.waitForCookiesModal();
+    await cookiesModal.acceptCookies();
 
     await use(mainPage);
   },
 });
 
-export { expect } from '@playwright/test';
+export { expect, test } from '@playwright/test';

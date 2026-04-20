@@ -1,18 +1,17 @@
-import { BasePage } from "@base/pages/BasePage";
-import { PassengerDetailsPage } from "@pages/search/search_result_details/passenger_details/PassengerDetailsPage";
-import { Step } from "@logger/Step";
+import { BasePage } from '@base/pages/BasePage';
+import { PassengerDetailsPage } from '@pages/search/search_result_details/passenger_details/PassengerDetailsPage';
+import { Step } from '@logger/Step';
 
 export class HolidayDetailsPricePanel extends BasePage {
-    locators = {
-        wrapper: () => this.page.locator(".ProgressbarNavigation__pricePanelWrapper"),
-        bookNowButton: () => this.locators.wrapper().locator('button').filter({ visible: true })
-    }
-    @Step('Book now')
-    async clickBookNow() {
-        const button = this.locators.bookNowButton()
-        await button.click()
-        await button.waitFor({ state: 'hidden' })
-        return new PassengerDetailsPage(this.page).waitForLoad()
-    }
-
+  locators = {
+    wrapper: () => this.page.locator('.ProgressbarNavigation__pricePanelWrapper'),
+    bookNowButton: () => this.locators.wrapper().locator('button').filter({ visible: true }),
+  };
+  @Step('Book now')
+  async clickBookNow() {
+    const button = this.locators.bookNowButton();
+    await button.click();
+    await button.waitFor({ state: 'hidden' });
+    return new PassengerDetailsPage(this.page).waitForLoad();
+  }
 }

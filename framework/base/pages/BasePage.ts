@@ -1,8 +1,7 @@
-import type { Locator, Page } from "@playwright/test";
+import type { Locator, Page } from '@playwright/test';
 
 export abstract class BasePage {
-    readonly locators: Record<string, () => Locator> = {}
+  readonly locators: Record<string, () => Locator> = {};
 
-    constructor(public page: Page) { }
-
+  constructor(public page: Page) {}
 }
