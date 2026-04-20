@@ -9,7 +9,8 @@
   "scripts": {
     "test": "playwright test --project=firefox",
     "format": "prettier --write .",
-    "lint": "prettier --check ."
+    "lint": "prettier --check .",
+    "type-check": "tsc --noEmit"
   },
   "devDependencies": {
     "@playwright/test": "^1.59.1",

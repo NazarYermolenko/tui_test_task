@@ -1,8 +1,6 @@
 import { tuiFixture, expect } from '@tests/fixtures/TuiFixture';
 import { WaitUtils } from '@utils/WaitUtils';
 import { PassengerValidationMessages } from '@pages/search/search_result_details/passenger_details/components/passenger_forms/PassengerValidationMessages';
-import { MainPage } from '@pages/main/MainPage';
-import { TuiUrlProvider } from '@utils/TuiUrlProvider';
 
 const searchCriteria = {
   departureAirport: 'first',
